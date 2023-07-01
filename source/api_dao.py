@@ -712,10 +712,10 @@ class Musica_has_artistas:
         cursor = banco.cursor()
         
         data = request.json
-        musica_id = data.get('musica_id')
+        musica_id = data.get('musicas_id')
         artistas_id = data.get('artistas_id')
         
-        insert = ('INSERT INTO musica_has_artistas '
+        insert = ('INSERT INTO musicas_has_artistas '
                   '(musica_id, artistas_id)'
                   ' VALUES ("' + str(musica_id) + '",' + str(artistas_id) + ');'
                     )
@@ -731,7 +731,7 @@ class Musica_has_artistas:
         
         cursor = banco.cursor()
         
-        select = ('select * from musica_has_artistas')
+        select = ('select * from musicas_has_artistas')
         
         
         
@@ -742,7 +742,7 @@ class Musica_has_artistas:
         for linha in Linhas:
             resultado = {
                 'mha_id':linha[0],
-                'musica_id': linha [1],
+                'musicas_id': linha [1],
                 'artistas_id': linha [2]
             }
             resultados.append(resultado)
@@ -757,7 +757,7 @@ class Musica_has_artistas:
         
         _mha = mha_id
         select = ('SELECT mha.id, mha.musicas_id, mha.artistas_id'
-                  'FROM musica_has_artistas mha'
+                  'FROM musicas_has_artistas mha'
                   'WHERE mha.id = ' + str(_mha) + ';')
         
         cursor.execute(select)
@@ -781,10 +781,10 @@ class Musica_has_artistas:
         
         data = request.json
         
-        musica_id = data.get('musica_id')
+        musica_id = data.get('musicas_id')
         artista_id = data.get('artista_id')
         
-        update = ('UPDATE musica_has_artistas as mha'
+        update = ('UPDATE musicas_has_artistas as mha'
                   'SET mha.musica_id = "' + str(musica_id) + '", mha.artsitas_id = ' + str(artista_id) + ' WHERE mha.id = ' + str(mha_id) + ';')
         
         cursor.execute(update)
@@ -800,7 +800,7 @@ class Musica_has_artistas:
         
         _mha = mha_id
         
-        delete = ('DELETE FROM musica_has_artistas mha'
+        delete = ('DELETE FROM musicas_has_artistas mha'
                   'WHERE mha.id = ' + str(_mha) + ';')
         
         cursor.execute(delete)

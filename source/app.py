@@ -163,25 +163,25 @@ def delete_planos():
 
 # #---------------------------------Musica_has_artistas---------------------------------------------
 
-@app.route('/musica_has_artistas', methods=['POST'])
+@app.route('/musicas_has_artistas', methods=['POST'])
 def insert_mha():
     Musica_has_artistas.cria_mha()
     return 'Musica_has_artistas criado com sucesso!'
 
-@app.route('/musica_has_artistas', methods=['GET'])
+@app.route('/musicas_has_artistas', methods=['GET'])
 def select_mha():
     return Musica_has_artistas.get_mha() 
 
-@app.route('/musica_has_artistas/<int:mha_id>', methods=['GET'])
+@app.route('/musicas_has_artistas/<int:mha_id>', methods=['GET'])
 def select_mha_id():
     return Musica_has_artistas.get_mha_id()
 
-@app.route('/musica_has_artistas/<int:mha_id>', methods=['PUT'])
+@app.route('/musicas_has_artistas/<int:mha_id>', methods=['PUT'])
 def update_mha():
     Musica_has_artistas.atualiza_mha
     return 'Musica_has_artistas atualizado com sucesso!'
 
-@app.route('/musica_has_artistas/<int:mha_id>', methods=['DELETE'])
+@app.route('/musicas_has_artistas/<int:mha_id>', methods=['DELETE'])
 def delete_mha():
     Musica_has_artistas.deleta_mha()
     return 'Musica_has_artistas deletado com sucesso!'
